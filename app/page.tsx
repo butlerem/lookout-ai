@@ -201,3 +201,25 @@ const HomePage = (props: Props) => {
     </div>
   )
 
+
+  // handler functions
+
+  function userPromptScreenshot() {
+
+    // take picture
+    if(!webcamRef.current){
+      toast('Camera not found. Please refresh');
+    }else{
+      const imgSrc = webcamRef.current.getScreenshot();
+      console.log(imgSrc);
+      const blob = base64toBlob(imgSrc);
+
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${formatDate(new Date())}.png`
+      a.click();
+    }
+    // save it to downloads
+
+  }
