@@ -223,3 +223,15 @@ const HomePage = (props: Props) => {
     // save it to downloads
 
   }
+
+  export default function RootLayout({ children }) {
+    return (
+      <html lang="en">
+        <head />
+        <body>
+          <main>{children}</main>
+          <Toaster />
+        </body>
+      </html>
+    )
+  }
