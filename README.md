@@ -23,7 +23,7 @@ Customizable Settings: Users can toggle mirror mode, adjust volume, and manage r
 - Accessibility Tools: Assist individuals with visual impairments by identifying and describing objects within their environment.
 
 ## Deployment
-https://vercel.com/butlerems-projects/lookout-ai
+(https://lookout-ai.vercel.app/)
 
 ## Getting Started
 To run Lookout AI in your local environment:
