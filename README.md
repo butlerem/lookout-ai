@@ -2,10 +2,10 @@
 Lookout AI is a browser application designed to enhance security and monitoring through real-time object and person detection. It uses the webcam to identify and highlight objects and people within its field of vision.
 
 ## Features
-Real-time Detection: Utilizes TensorFlow's COCO-SSD model for efficient and accurate object detection.
-Interactive UI: Features a sidebar with controls for light/dark mode, auto record functionality, and the ability to take screenshots.
-Dynamic Recording: Offers both manual and automatic recording options, saving footage directly to the camera roll for easy access.
-Customizable Settings: Users can toggle mirror mode, adjust volume, and manage recording settings through an intuitive interface.
+- Real-time Detection: Utilizes TensorFlow's COCO-SSD model for efficient and accurate object detection.
+- Interactive UI: Features a sidebar with controls for light/dark mode, auto record functionality, and the ability to take screenshots.
+- Dynamic Recording: Offers both manual and automatic recording options, saving footage directly to the camera roll for easy access.
+- Customizable Settings: Users can toggle mirror mode, adjust volume, and manage recording settings through an intuitive interface.
 
 <img width="825" alt="Screenshot 2024-02-12 000557" src="https://github.com/butlerem/lookout-ai/assets/130527417/d3eb6b2d-315b-49e0-ad48-84b536c33102">
 
