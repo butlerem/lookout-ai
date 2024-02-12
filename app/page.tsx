@@ -14,7 +14,8 @@ import * as cocossd from '@tensorflow-models/coco-ssd'
 import "@tensorflow/tfjs-backend-cpu"
 import "@tensorflow/tfjs-backend-webgl"
 import { DetectedObject, ObjectDetection } from '@tensorflow-models/coco-ssd';
-
+import { drawOnCanvas } from '@/utils/draw';
+import SocialMediaLinks from '@/components/social-links';
 type Props = {}
 
 let interval: any = null;
@@ -233,14 +234,39 @@ const HomePage = (props: Props) => {
 
   }
 
-  export default function RootLayout({ children }) {
-    return (
-      <html lang="en">
-        <head />
-        <body>
-          <main>{children}</main>
-          <Toaster />
-        </body>
-      </html>
-    )
+  function userPromptRecord() {
+
+    if (!webcamRef.current) {
+      toast('Camera is not found. Please refresh.')
+    }
+
+    if (mediaRecorderRef.current?.state == 'recording') {
+      // check if recording
+      // then stop recording 
+      // and save to downloads
+      mediaRecorderRef.current.requestData();
+      clearTimeout(stopTimeout);
+      mediaRecorderRef.current.stop();
+      toast('Recording saved to downloads');
+
+    } else {
+      // if not recording
+      // start recording 
+      startRecording(false);
+    }
+  }
+
+  function startRecording(doBeep: boolean) {
+    if (webcamRef.current && mediaRecorderRef.current?.state !== 'recording') {
+      mediaRecorderRef.current?.start();
+      doBeep && beep(volume);
+
+      stopTimeout = setTimeout(() => {
+        if (mediaRecorderRef.current?.state === 'recording') {
+          mediaRecorderRef.current.requestData();
+          mediaRecorderRef.current.stop();
+        }
+
+      }, 30000);
+    }
   }
