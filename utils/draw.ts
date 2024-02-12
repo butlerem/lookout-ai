@@ -14,7 +14,7 @@ export function drawOnCanvas(
       ctx.beginPath();
 
       // styling
-      ctx.fillStyle = name === "person" ? "#FF0F0F" : "#00B612";
+      ctx.fillStyle = name === "person" ? "#8181E4" : "	#46B9B9";
       ctx.globalAlpha = 0.4;
 
       mirrored
@@ -26,7 +26,7 @@ export function drawOnCanvas(
 
       // text styling
       ctx.font = "12px Courier New";
-      ctx.fillStyle = 'black'
+      ctx.fillStyle = 'white'
       ctx.globalAlpha = 1;
       mirrored
         ? ctx.fillText(name, ctx.canvas.width - x -width + 10, y + 20)
