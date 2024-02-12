@@ -7,6 +7,9 @@ import Webcam from 'react-webcam';
 import { toast } from "sonner"
 import "@tensorflow/tfjs-backend-cpu"
 import "@tensorflow/tfjs-backend-webgl"
+import * as cocossd from '@tensorflow-models/coco-ssd'
+import "@tensorflow/tfjs-backend-cpu"
+import "@tensorflow/tfjs-backend-webgl"
 
 type Props = {}
 
