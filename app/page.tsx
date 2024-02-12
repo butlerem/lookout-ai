@@ -290,7 +290,7 @@ const HomePage = (props: Props) => {
     return <div className="text-xs text-muted-foreground">
       <ul className="space-y-4">
         <li>
-          <strong>Dark Mode/Sys Theme 🌗</strong>
+          <strong>Dark Mode/System Theme 🌗</strong>
           <p>Toggle between dark mode and system theme.</p>
           <Button className="my-2 h-6 w-6" variant={"outline"} size={"icon"}>
             <SunIcon size={14} />
@@ -334,7 +334,7 @@ const HomePage = (props: Props) => {
         </li>
         <Separator />
         <li>
-          <strong>Enable/Disable Auto Record 🚫</strong>
+          <strong>Enable/Disable Auto Record 📷</strong>
           <p>
             Option to enable/disable automatic video recording whenever
             required.
@@ -354,16 +354,16 @@ const HomePage = (props: Props) => {
           <p>Adjust the volume level of the notifications.</p>
         </li>
         <li>
-          <strong>Camera Feed Highlighting 🎨</strong>
+          <strong>Camera Feed Highlighting 💿</strong>
           <p>
             Highlights persons in{" "}
-            <span style={{ color: "#FF0F0F" }}>red</span> and other objects in{" "}
-            <span style={{ color: "#00B612" }}>green</span>.
+            <span style={{ color: "#5275E0" }}>blue</span> and other objects in{" "}
+            <span style={{ color: "#33CCAD" }}>green</span>.
           </p>
         </li>
         <Separator />
         <li className="space-y-4">
-          <strong>Share your thoughts 💬 </strong>
+          <strong>Share your thoughts 🌼 </strong>
           <SocialMediaLinks/>
           <br />
           <br />
