@@ -16,6 +16,7 @@ import "@tensorflow/tfjs-backend-webgl"
 import { DetectedObject, ObjectDetection } from '@tensorflow-models/coco-ssd';
 import { drawOnCanvas } from '@/utils/draw';
 import SocialMediaLinks from '@/components/social-links';
+
 type Props = {}
 
 let interval: any = null;
@@ -210,26 +211,25 @@ const HomePage = (props: Props) => {
     </div>
   )
 
-
-
   // handler functions
 
   function userPromptScreenshot() {
 
     // take picture
     if(!webcamRef.current){
-      toast('Camera was not found.');
+      toast('Camera not found. Please refresh');
     }else{
       const imgSrc = webcamRef.current.getScreenshot();
       console.log(imgSrc);
       const blob = base64toBlob(imgSrc);
+
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = `${formatDate(new Date())}.png`
       a.click();
     }
-    // save to downloads folder
+    // save it to downloads
 
   }
 
@@ -270,7 +270,6 @@ const HomePage = (props: Props) => {
     }
   }
 
-  
   function toggleAutoRecord() {
     if (autoRecordEnabled) {
       setAutoRecordEnabled(false);
@@ -358,13 +357,13 @@ const HomePage = (props: Props) => {
           <strong>Camera Feed Highlighting 🎨</strong>
           <p>
             Highlights persons in{" "}
-            <span style={{ color: "#338FCC" }}>blue</span> and other objects in{" "}
-            <span style={{ color: "#29A385" }}>green</span>.
+            <span style={{ color: "#FF0F0F" }}>red</span> and other objects in{" "}
+            <span style={{ color: "#00B612" }}>green</span>.
           </p>
         </li>
         <Separator />
         <li className="space-y-4">
-          <strong>Share Feedback 💬 </strong>
+          <strong>Share your thoughts 💬 </strong>
           <SocialMediaLinks/>
           <br />
           <br />
