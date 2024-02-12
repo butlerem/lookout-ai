@@ -1,15 +1,19 @@
 "use client"
+import { ModeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
+import { Slider } from '@/components/ui/slider';
+import { beep } from '@/utils/audio';
 import { Camera, Divide, FlipHorizontal, MoonIcon, PersonStanding, SunIcon, Video, Volume2 } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react'
+import { Rings } from 'react-loader-spinner';
 import Webcam from 'react-webcam';
 import { toast } from "sonner"
-import "@tensorflow/tfjs-backend-cpu"
-import "@tensorflow/tfjs-backend-webgl"
 import * as cocossd from '@tensorflow-models/coco-ssd'
 import "@tensorflow/tfjs-backend-cpu"
 import "@tensorflow/tfjs-backend-webgl"
+import { DetectedObject, ObjectDetection } from '@tensorflow-models/coco-ssd';
 
 type Props = {}
 
@@ -24,11 +28,12 @@ const HomePage = (props: Props) => {
   const [isRecording, setIsRecording] = useState<boolean>(false);
   const [autoRecordEnabled, setAutoRecordEnabled] = useState<boolean>(false)
   const [volume, setVolume] = useState(0.8);
+  const [model, setModel] = useState<ObjectDetection>();
   const [loading, setLoading] = useState(false);
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
 
-  // initialize media recorder
+  // initialize the media recorder
   useEffect(() => {
     if (webcamRef && webcamRef.current) {
       const stream = (webcamRef.current.video as any).captureStream();
@@ -62,8 +67,8 @@ const HomePage = (props: Props) => {
     initModel();
   }, [])
 
-  // load model 
-  // set the model in a state varaible
+  // loads model 
+  // set it in a state varaible
   async function initModel() {
     const loadedModel: ObjectDetection = await cocossd.load({
       base: 'mobilenet_v2'
@@ -109,7 +114,7 @@ const HomePage = (props: Props) => {
     }, 100)
 
     return () => clearInterval(interval);
-  }, [webcamRef.current, model, mirrored, autoRecordEnabled])
+  }, [webcamRef.current, model, mirrored, autoRecordEnabled, runPrediction])
 
   return (
 
@@ -203,6 +208,7 @@ const HomePage = (props: Props) => {
       </div>}
     </div>
   )
+
 
 
   // handler functions
