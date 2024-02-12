@@ -359,13 +359,13 @@ const HomePage = (props: Props) => {
           <strong>Camera Feed Highlighting 🎨</strong>
           <p>
             Highlights persons in{" "}
-            <span style={{ color: "#FF0F0F" }}>red</span> and other objects in{" "}
-            <span style={{ color: "#00B612" }}>green</span>.
+            <span style={{ color: "#338FCC" }}>blue</span> and other objects in{" "}
+            <span style={{ color: "#29A385" }}>green</span>.
           </p>
         </li>
         <Separator />
         <li className="space-y-4">
-          <strong>Share your thoughts 💬 </strong>
+          <strong>Share Feedback 💬 </strong>
           <SocialMediaLinks/>
           <br />
           <br />
@@ -387,4 +387,34 @@ function resizeCanvas(canvasRef: React.RefObject<HTMLCanvasElement>, webcamRef: 
     canvas.width = videoWidth;
     canvas.height = videoHeight;
   }
+}
+
+
+function formatDate(d: Date) {
+  const formattedDate =
+    [
+      (d.getMonth() + 1).toString().padStart(2, "0"),
+      d.getDate().toString().padStart(2, "0"),
+      d.getFullYear(),
+    ]
+      .join("-") +
+    " " +
+    [
+      d.getHours().toString().padStart(2, "0"),
+      d.getMinutes().toString().padStart(2, "0"),
+      d.getSeconds().toString().padStart(2, "0"),
+    ].join("-");
+  return formattedDate;
+}
+
+function base64toBlob(base64Data: any) {
+  const byteCharacters = atob(base64Data.split(",")[1]);
+  const arrayBuffer = new ArrayBuffer(byteCharacters.length);
+  const byteArray = new Uint8Array(arrayBuffer);
+
+  for (let i = 0; i < byteCharacters.length; i++) {
+    byteArray[i] = byteCharacters.charCodeAt(i);
+  }
+
+  return new Blob([arrayBuffer], { type: "image/png" }); // Specify the image type here
 }
