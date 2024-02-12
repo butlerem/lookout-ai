@@ -218,19 +218,18 @@ const HomePage = (props: Props) => {
 
     // take picture
     if(!webcamRef.current){
-      toast('Camera not found. Please refresh');
+      toast('Camera was not found.');
     }else{
       const imgSrc = webcamRef.current.getScreenshot();
       console.log(imgSrc);
       const blob = base64toBlob(imgSrc);
-
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = `${formatDate(new Date())}.png`
       a.click();
     }
-    // save it to downloads
+    // save to downloads folder
 
   }
 
