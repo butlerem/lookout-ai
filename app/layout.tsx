@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 const rm = Roboto_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'LookoutAI',
+  title: 'ViewSpot',
   description: 'object detecting AI-powered 24x7 surveillance',
 }
 

@@ -16,6 +16,7 @@ import "@tensorflow/tfjs-backend-webgl";
 import { DetectedObject, ObjectDetection } from '@tensorflow-models/coco-ssd';
 import { drawOnCanvas } from '@/utils/draw';
 import SocialMediaLinks from '@/components/social-links';
+import Image from 'next/image'; 
 
 type Props = {};
 
@@ -232,9 +233,13 @@ const HomePage = (props: Props) => {
   function RenderFeatureHighlightsSection() {
     return (
       <div className="text-xs text-muted-foreground">
-        <h1 className="text-2xl font-bold mb-4">ViewSpot</h1>
-        <h2 className="text-lg font-semibold mb-2">Features</h2>
-        <ul className="space-y-4">
+        <div className="logo">
+          <Image src="/logo.png" alt="ViewSpot Logo" width={90} height={70} />
+        </div>
+        <h3 className="font-semibold mb-2 space-y-4">Features Menu</h3>
+        <p className="mb-2"></p>
+        <Separator />
+        <ul className="space-y-4 mt-2">
           <li>
             <strong>Theme</strong>
             <p>Toggle Light/Dark mode.</p>
@@ -249,34 +254,39 @@ const HomePage = (props: Props) => {
           <li>
             <strong>Flip Camera</strong>
             <p>Flip orientation horizontally</p>
-            <Button className="h-6 w-6 my-2" variant="outline" size="icon" onClick={() => setMirrored((prev) => !prev)}>
+            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
               <FlipHorizontal size={14} />
             </Button>
           </li>
           <Separator />
           <li>
-            <strong>Taking Snapshots</strong>
-            <Button className="h-6 w-6 my-2" variant="outline" size="icon" onClick={userPromptScreenshot}>
+            <strong>Snapshots</strong>
+            <p></p>
+            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
               <Camera size={14} />
             </Button>
           </li>
           <li>
             <strong>Manual Video Recording</strong>
             <p></p>
-            <Button className="h-6 w-6 my-2" variant={isRecording ? 'destructive' : 'outline'} size="icon" onClick={userPromptRecord}>
+            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
               <Video size={14} />
             </Button>
           </li>
           <Separator />
           <li>
-            <strong>Enable/Disable Auto Recording</strong>
-            <Button className="h-6 w-6 my-2" variant={autoRecordEnabled ? 'destructive' : 'outline'} size="icon" onClick={toggleAutoRecord}>
+            <strong>Enable/Disable Auto Record</strong>
+            <p></p>
+            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
               {autoRecordEnabled ? <Rings color="white" height={30} /> : <PersonStanding size={14} />}
             </Button>
           </li>
           <li>
             <strong>Volume Slider</strong>
             <p>Adjust notification volume.</p>
+            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
+              <Volume2 size={14} />
+            </Button>
           </li>
           <li>
             <strong>Camera Feed Highlighting</strong>
@@ -294,6 +304,7 @@ const HomePage = (props: Props) => {
       </div>
     );
   }
+  
 };
 
 export default HomePage;
