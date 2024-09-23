@@ -131,7 +131,6 @@ const HomePage = (props: Props) => {
             <Button variant={isRecording ? 'destructive' : 'outline'} size="icon" onClick={userPromptRecord}>
               <Video />
             </Button>
-            <Separator className="my-2" />
             <Button
               variant={autoRecordEnabled ? 'destructive' : 'outline'}
               size="icon"
@@ -139,6 +138,7 @@ const HomePage = (props: Props) => {
             >
               {autoRecordEnabled ? <Rings color="white" height={45} /> : <PersonStanding />}
             </Button>
+            <Separator className="my-2" />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -165,7 +165,7 @@ const HomePage = (props: Props) => {
           </div>
         </div>
 
-        <div className="h-full flex-1 py-4 px-2 overflow-y-scroll">
+        <div className="h-full flex-1 py-4 px-2">
           <RenderFeatureHighlightsSection />
         </div>
       </div>
@@ -233,29 +233,30 @@ const HomePage = (props: Props) => {
 
   function RenderFeatureHighlightsSection() {
     return (
-      <div className="text-xs text-muted-foreground">
-        <div className="logo">
+      <div className="text-xs text-muted-foreground w-[90px] text-center">
+        <div className="logo m-1">
           <Image src="/logo.png" alt="ViewSpot Logo" width={90} height={70} />
         </div>
-        <h3 className="font-semibold mb-2 space-y-4">Features Menu</h3>
+        <h3 className="font-semibold mb-2 space-y-4">Features</h3>
         <p className="mb-2"></p>
         <Separator />
         <ul className="space-y-4 mt-2">
           <li>
             <strong>Theme</strong>
-            <p>Toggle Light/Dark mode.</p>
-            <Button className="my-2 h-6 w-6" variant="outline" size="icon">
+            <p></p>
+            <Button className="mt-1 h-6 w-6" variant="outline" size="icon">
               <SunIcon size={14} />
             </Button>{" "}
             /{" "}
-            <Button className="my-2 h-6 w-6" variant="outline" size="icon">
+            <Button className="mt-1 h-6 w-6" variant="outline" size="icon">
               <MoonIcon size={14} />
             </Button>
           </li>
+          <Separator />
           <li>
             <strong>Flip Camera</strong>
             <p>Flip orientation horizontally</p>
-            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
+            <Button className="h-6 w-6 mt-1" variant="outline" size="icon">
               <FlipHorizontal size={14} />
             </Button>
           </li>
@@ -263,14 +264,15 @@ const HomePage = (props: Props) => {
           <li>
             <strong>Snapshots</strong>
             <p></p>
-            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
+            <Button className="h-6 w-6 mt-1" variant="outline" size="icon">
               <Camera size={14} />
             </Button>
           </li>
+          <Separator />
           <li>
             <strong>Manual Video Recording</strong>
             <p></p>
-            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
+            <Button className="h-6 w-6 mt-1" variant="outline" size="icon">
               <Video size={14} />
             </Button>
           </li>
@@ -278,26 +280,27 @@ const HomePage = (props: Props) => {
           <li>
             <strong>Enable/Disable Auto Record</strong>
             <p></p>
-            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
+            <Button className="h-6 w-6 mt-1" variant="outline" size="icon">
               {autoRecordEnabled ? <Rings color="white" height={30} /> : <PersonStanding size={14} />}
             </Button>
           </li>
+          <Separator />
           <li>
             <strong>Volume Slider</strong>
             <p>Adjust notification volume.</p>
-            <Button className="h-6 w-6 my-2" variant="outline" size="icon">
+            <Button className="h-6 w-6 mt-1" variant="outline" size="icon">
               <Volume2 size={14} />
             </Button>
           </li>
           <li>
             <strong>Camera Feed Highlighting</strong>
             <p>
-              Persons in <span style={{ color: "#5275E0" }}>blue</span> and all other objects in{" "}
-              <span style={{ color: "#33CCAD" }}>green</span>.
+              <span style={{ color: "#5275E0" }}>People in blue</span> and all {" "}
+              <span style={{ color: "#33CCAD" }}>other objects in green</span>.
             </p>
           </li>
           <Separator />
-          <li className="space-y-4">
+          <li className="space-y-1">
             <strong>Share your thoughts</strong>
             <SocialMediaLinks />
           </li>

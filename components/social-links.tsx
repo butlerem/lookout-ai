@@ -4,7 +4,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const SocialMediaLinks = () => {
     return (
-        <div className='flex flex-row gap-4'>
+        <div className='flex flex-row gap-4 justify-center'>
             <a href="https://github.com/butlerem" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faGithub} size="2x" />
             </a>
