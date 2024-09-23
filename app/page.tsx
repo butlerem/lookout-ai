@@ -65,8 +65,9 @@ const HomePage = (props: Props) => {
 
   async function initModel() {
     const loadedModel: ObjectDetection = await cocossd.load({
-      base: 'mobilenet_v2',
+      base: 'lite_mobilenet_v2', // Lighter model for faster performance
     });
+    
     setModel(loadedModel);
   }
 
@@ -101,7 +102,7 @@ const HomePage = (props: Props) => {
   }
 
   useEffect(() => {
-    interval = setInterval(() => runPrediction(), 100);
+    interval = setInterval(() => runPrediction(), 500);
     return () => clearInterval(interval);
   }, [webcamRef.current, model, mirrored, autoRecordEnabled, runPrediction]);
 
